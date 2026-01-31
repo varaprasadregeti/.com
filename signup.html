@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Signup</title>
+</head>
+<body>
+
+<h2>Student Signup</h2>
+
+<input type="email" id="email" placeholder="Enter Email"><br><br>
+<input type="password" id="password" placeholder="Enter Password"><br><br>
+
+<button onclick="signup()">Create Account</button>
+
+<p id="msg"></p>
+
+<script type="module">
+  // 🔥 Firebase imports
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+  // ✅ YOUR REAL FIREBASE CONFIG
+  const firebaseConfig = {
+    apiKey: "AIzaSyCahtIaZ9axT5WCFwZC3sn3FQGpY0SzSPs",
+    authDomain: "kgrlstudentinfo-cd45a.firebaseapp.com",
+    projectId: "kgrlstudentinfo-cd45a",
+    storageBucket: "kgrlstudentinfo-cd45a.firebasestorage.app",
+    messagingSenderId: "389251086239",
+    appId: "1:389251086239:web:026c81872a5149d1b9efaa"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Signup function
+  window.signup = function () {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        document.getElementById("msg").innerText =
+          "Signup Successful ✅ UID: " + userCredential.user.uid;
+      })
+      .catch((error) => {
+        document.getElementById("msg").innerText = error.message;
+      });
+  };
+</script>
+
+</body>
+</html>
