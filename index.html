@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>KGRL Student Info</title>
+  <meta charset="UTF-8">
+  <title>KGRL Student Info Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>🎓 KGRL Student Info Portal</h1>
 
-<input id="name" placeholder="Student Name">
-<input id="roll" placeholder="Roll Number">
-<input id="dept" placeholder="Department">
-<button onclick="addStudent()">Add Student</button>
+<div class="container">
 
-<h2>📋 Student List</h2>
-<ul id="list"></ul>
+  <h1>🎓 KGRL Student Info Portal</h1>
 
+  <!-- Student Form -->
+  <div class="form-box">
+    <input id="name" type="text" placeholder="Student Name">
+    <input id="roll" type="text" placeholder="Roll Number">
+    <input id="dept" type="text" placeholder="Department">
+    <button onclick="addStudent()">Add Student</button>
+  </div>
+
+  <!-- Student List -->
+  <div class="list-box">
+    <h2>📋 Student List</h2>
+    <ul id="list"></ul>
+  </div>
+
+</div>
+
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
 <script src="script.js"></script>
+
 </body>
 </html>
